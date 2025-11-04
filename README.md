@@ -19,19 +19,29 @@ In addition to personalized movie discovery, the application enables users to bo
 **Use Case 1: User Authentication (Log in/Sign up)**
 • Main Flow: 
 o User opens the application and selects Log in/ Sign up. []
+
 o System prompts the user to enter username and password. []
+
 o If user selects “Log in”, system confirms user authentication and loads the main page. []
+
 o If user selects “Sign up”, system validates input and stores user information and loads the main page. []
+
 
 • Alternative Flows: 
 o If incorrect information when “Log in” → system displays “invalid username/password”. []
+
 o If account already exists when “Sign up” → system displays “account exists”. []
+
 
 **Use Case 2: Search Movies**
 • Main Flow: 
+
 o User enters a movie title in the Search bar. []
+
 o System retrieves the information using an external API. []
+
 o System displays movies with title, poster, rating. []
+
     User can view more detailed information about the movie:
       - Movie title []
       - Release year []
