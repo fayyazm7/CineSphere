@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CineSphere.iml" filepath="$PROJECT_DIR$/.idea/CineSphere.iml" />
-      <module fileurl="file://$PROJECT_DIR$/landingPage/landingPage.iml" filepath="$PROJECT_DIR$/landingPage/landingPage.iml" />
     </modules>
   </component>
 </project>
