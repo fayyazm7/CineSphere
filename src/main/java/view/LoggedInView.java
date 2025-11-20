@@ -4,12 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
+import controller.SearchFilm;
+
 public class LoggedInView {
 
 
         public static void main(String[] args) {
             JFrame frame = new JFrame("Background Display");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             frame.setSize(900, 800);
 
             JPanel backgroundPanel = new JPanel();
@@ -65,6 +67,42 @@ public class LoggedInView {
             filterPanel.add(filterButton);
             filterPanel.add(findFilm);
             filterPanel.add(searchField);
+
+            SearchFilm searchFilm = new SearchFilm();
+
+            searchField.addActionListener(e -> {
+                String query = searchField.getText().trim();
+                if (query.isEmpty()) {
+                    JOptionPane.showMessageDialog(frame, "Please enter a film name");
+                    return;
+                }
+                new Thread(() -> {
+                    int movieId = searchFilm.findFilm(query);
+                    if (movieId != -1) {
+                        SwingUtilities.invokeLater(() -> {
+                            //Movie movie = new Movie(movieId, query);
+                            JFrame movieFrame = new JFrame("Movie Page - ID:" + movieId);
+                            movieFrame.setSize(500, 300);
+                            JLabel label = new JLabel("Movie Page for ID: " + movieId, SwingConstants.CENTER);
+                            label.setFont(new Font("Arial", Font.BOLD, 16));
+                            movieFrame.add(label);
+                            movieFrame.setVisible(true);
+                        });
+                    } else {
+                        SwingUtilities.invokeLater(() -> {
+                            JFrame errorFrame = new JFrame("Error");
+                            errorFrame.setSize(400, 200);
+                            JLabel label = new JLabel("ERROR 404: Movie Not Found :(", SwingConstants.CENTER);
+                            label.setFont(new Font("Arial", Font.BOLD, 18));
+                            errorFrame.add(label);
+                            errorFrame.setVisible(true);
+                        });
+                    }
+                }).start();
+            });
+
+
+
 
             JPanel searchPanel = new JPanel();
             searchPanel.setPreferredSize(new Dimension(800, 50));

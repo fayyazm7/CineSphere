@@ -17,7 +17,7 @@ public class WatchlistView {
         this.watchlistController = watchlistController;
 
             JFrame frame = new JFrame("Watchlist");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             frame.setSize(900, 800);
 
             JPanel backgroundPanel = new JPanel();
