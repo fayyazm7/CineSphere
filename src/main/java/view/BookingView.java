@@ -5,8 +5,8 @@ import java.awt.*;
 
 public class BookingView {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Background Display");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JFrame frame = new JFrame("Booking View");
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(900, 800);
         JPanel backgroundPanel = new JPanel();
         backgroundPanel.setBackground(new Color(255, 255, 224));
